@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html, #root {
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', 'Press Start 2P', 'monospace', sans-serif;
+  background: none;
+}
+
+body {
+  color: #4f00fb;
+  background: linear-gradient(120deg, #0f2027 0%, #2c5364 100%), radial-gradient(circle at 60% 40%, #150622 0%, #090222 30%, #0f172a 70%, #000 100%);
+  background-blend-mode: screen, normal;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes nebula {
+  0% { filter: blur(0px) brightness(1.1); }
+  50% { filter: blur(6px) brightness(1.3); }
+  100% { filter: blur(0px) brightness(1.1); }
+}
+
+.nebula-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 30%, #1408f5 0%, #2f1df3 40%, transparent 80%),
+              radial-gradient(circle at 20% 80%, #000000 0%, #000000 30%, transparent 80%);
+  opacity: 0.8;
+  animation: nebula 8s ease-in-out infinite alternate;
+}
+
+.stars {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background: transparent;
+  overflow: hidden;
+}
+
+.stars span {
+  position: absolute;
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: drift 16s linear infinite;
+  filter: drop-shadow(0 0 6px #fffbfb) drop-shadow(0 0 12px #ffffff);
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes starfall {
+  0% { top: -5%; opacity: 0.8; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 105%; opacity: 0.2; }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(1.2);
+    opacity: 0.2;
+  }
+}
+
+.glow-text {
+  text-shadow: 0 0 16px #0088ff, 0 0 32px #082ff2, 0 0 2px #061ce5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', 'Press Start 2P', Arial, sans-serif;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 16px #00fff7, 0 0 32px #38bdf8, 0 0 2px #fff;
+}
+
+.glow-border {
+  box-shadow: 0 0 24px 4px #00ffff, 0 0 0 4px #00ffff inset;
+  border: 2px solid #00ffff;
+}
+
+.neon-glow {
+  text-shadow: 0 0 8px rgb(47, 0, 255), 0 0 16px #0ff, 0 0 32px rgb(85, 0, 255), 0 0 64px rgb(0, 26, 255);
+  box-shadow: 0 0 24px 8px #0ff, 0 0 64px 16px #0ff inset;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', 'Press Start 2P', 'monospace', sans-serif;
+}
+
+.fullscreen-center {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+.big-title {
+  font-size: 7vw;
+  color: #fff;
+  text-align: center;
+  font-family: 'Orbitron', 'Press Start 2P', monospace, sans-serif;
+  text-shadow: 0 0 32px #00fff7, 0 0 64px #38bdf8;
+  margin-bottom: 2vw;
+  line-height: 1.05;
+}
+.big-feedback {
+  font-size: 4vw;
+  color: #fff;
+  text-align: center;
+  font-family: 'Orbitron', 'Press Start 2P', monospace, sans-serif;
+  text-shadow: 0 0 24px #00fff7, 0 0 32px #38bdf8;
+  margin-bottom: 3vw;
+  line-height: 1.05;
+}
+.big-btn {
+  font-size: 3vw;
+  padding: 1.5vw 5vw;
+  border-radius: 2vw;
+  background: #06f;
+  color: #fff;
+  box-shadow: 0 0 80px #00ffff;
+  margin: 2vw 0;
+  font-family: 'Orbitron', 'Press Start 2P', monospace, sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.big-btn:active {
+  background: #00bfff;
+  transform: scale(0.97);
+}
